@@ -455,7 +455,7 @@ h6,
 #menu-5 .nav-dropdown-sm,
 #menu-5 .nav-dropdown-sm .link[aria-expanded="true"],
 #menu-5 .nav-dropdown-sm .dropdown-menu {
-  background: #282828;
+  background: #5bc0de;
 }
 #menu-5 .bg-color.transparent .link {
   color: #ffffff;
@@ -496,4 +496,15 @@ h6,
 #features7-d .iconbox {
   background-color: #c0a375;
   border-color: #c0a375;
+}
+
+.fixed-ads{
+position: fixed;
+    top: 100px;
+    right: 5px;
+    height: 10%;
+    width: 200px;
+    z-index: 1;
+    padding-top: 0px;
+    padding-right: 0px;
 }
