@@ -5,6 +5,15 @@ app.controller('appCtrl', ['$scope','$compile','uiCalendarConfig', function ($sc
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
+	var monday = getFirstDayOfWeek(date, 'mon');
+	var tuesday = getFirstDayOfWeek(date, 'tue');
+	var wednesday = getFirstDayOfWeek(date, 'wed');
+	var thursday = getFirstDayOfWeek(date, 'thurs');
+	var friday = getFirstDayOfWeek(date, 'fri');
+	var saturday = getFirstDayOfWeek(date, 'sat');
+	var sunday = getFirstDayOfWeek(date, 'sun');
+	
+	
     
     $scope.changeTo = 'Hungarian';
     /* event source that pulls from google.com */
@@ -15,11 +24,19 @@ app.controller('appCtrl', ['$scope','$compile','uiCalendarConfig', function ($sc
     };
     /* event source that contains custom events on the scope */
     $scope.events = [
-      {title: 'MMA Class',start: new Date(y, m, 1)},
-      {title: 'Boxing',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
-      {id: 999,title: 'Muay Thai',start: new Date(y, m, d - 3, 16, 0),allDay: false},
-      {id: 999,title: 'Muay Thai',start: new Date(y, m, d + 4, 16, 0),allDay: false},
-      {title: 'Sparring',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
+	  {title: 'HammerFist Kids',start: getDayWithTime(tuesday,16,30),end: thursday,color: '#5cb85c',textColor: 'black',allDay: false},
+	  {title: 'Grappling',start: getDayWithTime(tuesday,20,00),color: '#b85c8f',textColor: 'black',allDay: false},
+	  {title: 'Grappling',start: getDayWithTime(thursday,20,30),color: '#b85c8f',textColor: 'black',allDay: false},
+	  {title: 'MMA',start: getDayWithTime(wednesday,16,30),color: '#e1a90f',textColor: 'black',allDay: false},
+	  {title: 'MMA',start: getDayWithTime(friday,20,00),color: '#e1a90f',textColor: 'black',allDay: false},
+	  {title: 'HammerFist Women',start: getDayWithTime(monday,19,00),color: '#5bc0de',textColor: 'black',allDay: false},
+	  {title: 'HammerFist Women',start: getDayWithTime(wednesday,19,00),color: '#5bc0de',textColor: 'black',allDay: false},
+	  {title: 'HammerFist Women',start: getDayWithTime(friday,19,00),color: '#5bc0de',textColor: 'black',allDay: false},
+	  {title: 'Muay Thai',start: getDayWithTime(monday,20,00),color: '#c0a375',textColor: 'black',allDay: false},
+	  {title: 'Muay Thai',start: getDayWithTime(wednesday,20,00),color: '#c0a375',textColor: 'black',allDay: false},
+	  {title: 'Boxing',start: getDayWithTime(tuesday,20,00),color: '#f281b5',textColor: 'black',allDay: false},
+	  {title: 'Boxing',start: getDayWithTime(thursday,20,00),color: '#f281b5',textColor: 'black',allDay: false},
+	  {title: 'Fighters Class',start: getDayWithTime(saturday,17,00),color: '#f0f281',textColor: 'black',allDay: false},
     ];
     /* event source that calls a function on every view switch */
     $scope.eventsF = function (start, end, timezone, callback) {
@@ -123,4 +140,42 @@ app.controller('appCtrl', ['$scope','$compile','uiCalendarConfig', function ($sc
     /* event sources array*/
     $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
     $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
+	
+	function getFirstDayOfWeek(date, day) {
+
+  // copy date object
+  date = new Date(date);
+
+  if (day == 'mon') {
+    date.setDate(date.getDate() - (date.getDay() || 7) + 1);
+
+  }else if (day == 'tue') {
+    date.setDate(date.getDate() - (date.getDay() || 7) + 2);
+
+  }else if (day == 'wed') {
+    date.setDate(date.getDate() - (date.getDay() || 7) + 3);
+
+  }else if (day == 'thurs') {
+    date.setDate(date.getDate() - (date.getDay() || 7) + 4);
+
+  }else if (day == 'fri') {
+    date.setDate(date.getDate() - (date.getDay() || 7) + 5);
+  }else if (day == 'sat') {
+    date.setDate(date.getDate() - (date.getDay() || 7) + 6);
+  }else if (day == 'sun') {
+    date.setDate(date.getDate() - (date.getDay() || 7) + 7);
+  }else {
+    date.setDate(date.getDate() - date.getDay());
+  }
+  return date;
+}
+
+function getDayWithTime(date, hr,min) {
+
+  // copy date object
+  date = new Date(date);
+  date.setHours(hr);
+  date.setMinutes(min);
+  return date;
+}
 }]);

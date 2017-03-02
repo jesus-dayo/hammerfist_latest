@@ -31,7 +31,7 @@
   .navbar-dropdown .mbr-table-cell {
     height: 5.625rem; }
   .navbar-dropdown .navbar-caption {
-    font-family: "Montserrat";
+    font-family: "Lora";
     font-size: 1rem;
     font-weight: 700;
     white-space: normal; }
@@ -100,7 +100,7 @@
 
 .nav-dropdown {
   display: table !important;
-  font-family: "Montserrat";
+  font-family: "Lora";
   font-size: 0.75rem;
   font-weight: 700;
   height: auto !important; }
