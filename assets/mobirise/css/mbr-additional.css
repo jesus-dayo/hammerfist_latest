@@ -455,7 +455,7 @@ h6,
 #menu-5 .nav-dropdown-sm,
 #menu-5 .nav-dropdown-sm .link[aria-expanded="true"],
 #menu-5 .nav-dropdown-sm .dropdown-menu {
-  background: #5bc0de;
+  background: #535353;
 }
 #menu-5 .bg-color.transparent .link {
   color: #ffffff;
@@ -473,10 +473,10 @@ h6,
   color: #c0a375!important;
 }
 #header5-6 .mbr-section-title {
-  color: #000;
+  color: #d9534f;
 }
 #header5-6 .mbr-section-lead {
-  color: #9c9a9a;
+  color: #e1a90f;
 }
 #header5-9 .mbr-section-title {
   color: #000;

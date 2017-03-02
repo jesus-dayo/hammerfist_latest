@@ -590,7 +590,8 @@ p.lead,
  */
 body {
   font-family: 'Raleway', sans-serif;
-  color: #232323; }
+  color: #232323;
+    font-weight: bold;  }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6,
@@ -2172,4 +2173,8 @@ html.is-builder .article .lead:not([data-app-remove-it]) + div .btn {
 	padding: 0;
 	top: 0;
 	left: -2400px;
+}
+
+.img-center {
+	margin: 0 auto;
 }
